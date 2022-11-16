@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import {Bars4Icon, MagnifyingGlassIcon, ShoppingCartIcon} from '@heroicons/react/24/solid'
+import {Bars4Icon, MagnifyingGlassIcon, ShoppingCartIcon,  GifIcon, GiftIcon} from '@heroicons/react/24/solid'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link';
 import {useRouter} from 'next/router'
@@ -38,9 +38,9 @@ function Header({}: Props) {
             </p>
             <p className='font-extrabold md:text-sm'>Account & list</p>
           </div>
-          <div className='link'>
+          <div onClick={() => router.push('/orders')} className='link'>
             <p>Return</p>
-            <p className='font-extrabold md:text-sm'>& Order</p>
+            <p className='font-bold md:text-sm'>& Order</p>
           </div>
           <div onClick={() => router.push('/checkout')} className='relative link flex items-center'>
             <span 
@@ -48,10 +48,12 @@ function Header({}: Props) {
             bg-yellow-400 text-center rounded-full text-black font-bold'
             >
               {items.length}
+              
             </span>
             <ShoppingCartIcon className='h-10' />
             <p className='hidden md:inline font-extrabold md:text-sm mt-2'>Basket</p>
           </div>
+          
         </div>
       </div>
       {/* Bottom nav */}
